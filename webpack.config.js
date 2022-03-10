@@ -23,7 +23,7 @@ module.exports = {
     isDevelopment && new ReactRefreshWebpackPlugin(),  
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
-    })
+    }),
   ].filter(Boolean),
   module: {
     rules: [
