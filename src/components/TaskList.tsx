@@ -27,17 +27,17 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: number) {
-    const temp = tasks;
+    const temp = [...tasks];
     temp.map((task,i) => {
-      if (id === task.id) {
-        temp[i].isComplete = !temp[i].isComplete
-      }
+      id === task.id && (temp[i] = {...temp[i], isComplete : !temp[i].isComplete})
     })
-    setTasks(temp)
+    setTasks(temp);
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    let temp = [...tasks];
+    temp = temp.filter((task) => task.id !== id);
+    setTasks(temp);
   }
 
   return (
